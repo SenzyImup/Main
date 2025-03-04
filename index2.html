@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senzy Tamvan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .main-text {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        .slogan {
+            font-size: 16px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .nav-buttons button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #444;
+        }
+
+        .content-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .button-box {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .button-box img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .button-box p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .button-box a {
+            display: block;
+            background: linear-gradient(135deg, #ff6b81, #d4a017);
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .store-container {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-text">
+        Senzy <span style="color:#ff6b81;">#1</span> Source <br>
+        for Good <span style="color:#d4a017;">Script.</span>
+    </div>
+
+    <div class="slogan">
+        #STAY GANTENG | Enjoy the Little Things
+    </div>
+
+    <input type="text" id="searchBar" onkeyup="searchItems()" placeholder="Cari di folder aktif..."
+        class="block mx-auto w-1/2 mt-4 p-2 rounded bg-gray-800 text-white text-center">
+
+    <div class="nav-buttons">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('script')">Script</button>
+        <button onclick="showSection('store')">Store</button>
+    </div>
+
+    <!-- HOME -->
+<div id="home" class="content-section active">
+    <div class="introduction text-center p-4">
+        <h2 class="text-2xl font-bold">Tentang Saya</h2>
+        <p class="text-gray-300 mt-2">
+            Halo! Saya Senzy, seorang editor yang mereview berbagai script bot WhatsApp.
+            Saya memastikan setiap script yang saya ulas memiliki kualitas terbaik dan siap digunakan.
+            Jangan ragu untuk mengeksplorasi dan menemukan script yang cocok untuk kebutuhan Anda!
+        </p>
+    </div>
+</div>
+    <!-- SCRIPT -->
+    <div id="script" class="content-section">
+        <div class="button-container">
+            <div class="button-box">
+                <img src="https://i.ytimg.com/vi/kwrJ_F47Gk0/hqdefault.jpg">
+                <p>Sc Simple Bot</p>
+                <p>SC BOT WA TERBARU 2025 || 100+ FITUR || PAIRING CODE || SC BY vyna</p>
+                <a href="https://sub2unlock.me/WCCpIMi" target="_blank">Click</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORE -->
+    <div id="store" class="content-section">
+        <div class="store-container">
+            <h2>SENZYDEV – JASA & PANEL BERKUALITAS ❄️</h2>
+            <p><strong>🔹 Layanan yang Kami Sediakan:</strong></p>
+            <ul class="list-disc pl-5">
+                <li>✔️ Panel Pterodactyl Server Private</li>
+                <li>✔️ Jasa Edit/Rename Script</li>
+                <li>✔️ Jasa Run Panel Pterodactyl</li>
+                <li>✔️ Murbug & Nokos</li>
+                <li>✔️ Suntik Sosial Media</li>
+                <li>✔️ Top Up Game Murah & Cepat 🎮</li>
+            </ul>
+
+            <h2>📞 Kontak Owner:</h2>
+            <a href="https://wa.me/62859106602352" target="_blank">WhatsApp 1</a>
+            <a href="https://wa.me/6287779101885" target="_blank">WhatsApp 2</a>
+            <a href="https://t.me/senzyyyhot" target="_blank">Telegram</a>
+        </div>
+    </div>
+
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.content-section').forEach(div => {
+                div.classList.remove('active');
+            });
+            document.getElementById(section).classList.add('active');
+        }
+
+        function searchItems() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let activeFolder = document.querySelector(".content-section.active");
+            let buttons = activeFolder.querySelectorAll(".button-box");
+
+            let found = false;
+            buttons.forEach(button => {
+                let text = button.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    button.style.display = "block";
+                    found = true;
+                } else {
+                    button.style.display = "none";
+                }
+            });
+
+            if (!found) {
+                activeFolder.innerHTML += "<p id='notFound' class='text-red-500 mt-4'>Hasil tidak ditemukan</p>";
+            } else {
+                let notFoundText = document.getElementById("notFound");
+                if (notFoundText) notFoundText.remove();
+            }
+        }
+    </script>
+
+</body>
+</html>
